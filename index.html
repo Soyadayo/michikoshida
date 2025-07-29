@@ -75,7 +75,6 @@
             max-width: 500px;
             margin: 0 auto;
             color: rgba(255, 255, 255, 0.85);
-            text-shadow: none;
             line-height: 1.7;
             position: absolute;
             bottom: 70px;
@@ -86,7 +85,57 @@
             letter-spacing: 0.02em;
         }
 
-        /* Main Content */
+        /* Navigation for collapsible sections */
+        .section-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .nav-btn {
+            background: none;
+            border: 1px solid #ddd;
+            color: #666;
+            font-family: 'Georgia', serif;
+            font-size: 1rem;
+            font-weight: 300;
+            cursor: pointer;
+            padding: 10px 20px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            color: #2c3e50;
+            background: #f8f9fa;
+            border-color: #ccc;
+        }
+
+        .nav-btn.active {
+            color: #3e5e3e;
+            background: #f0f5f0;
+            border-color: #3e5e3e;
+        }
+
+        .nav-btn::after {
+            content: ' ▼';
+            font-size: 0.8rem;
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-btn.active::after {
+            transform: rotate(180deg);
+        }
+
         .main-content {
             padding: 80px 0;
         }
@@ -96,6 +145,14 @@
             grid-template-columns: 1fr 1fr;
             gap: 60px;
             margin-bottom: 80px;
+        }
+
+        .content-section {
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
         }
 
         .content-section h2 {
@@ -185,7 +242,50 @@
             background: #4a6b4a;
         }
 
-        /* Contact Section */
+        /* Where to Buy Section */
+        .stores-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .store-group h3 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .store-item {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .store-item:last-child {
+            border-bottom: none;
+        }
+
+        .store-item strong {
+            color: #2c3e50;
+        }
+
+        .store-item a {
+            color: #3e5e3e;
+            text-decoration: none;
+        }
+
+        .store-item a:hover {
+            text-decoration: underline;
+        }
+
         .contact-section {
             padding: 60px 0;
             text-align: center;
@@ -256,6 +356,20 @@
                 gap: 40px;
             }
 
+            .stores-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .store-item {
+                font-size: 0.85rem;
+            }
+
+            .nav-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
             .download-link {
                 display: block;
                 margin: 10px auto;
@@ -299,18 +413,14 @@
                 <div class="content-section">
                     <h2>About</h2>
                     <p>Born and raised in Japan, I developed an interest in creative activities and explored various experiences, including studying ceramics. After moving to Germany I dedicated three years to focused study in the field.</p>
-                    
                     <p>The approach to ceramics in Japan and Germany differs significantly, and as Germany is an industrialized country, I had the valuable opportunity to learn in detail about everything from materials to distribution.</p>
-                    
                     <p>Although I have lived and created in Germany for a long time, my sense of aesthetics and philosophy are fundamentally rooted in Japan.</p>
                 </div>
                 
                 <div class="content-section">
                     <h2>Philosophy</h2>
                     <p>Ceramics can be categorized either as art or craft, but I do not believe it necessarily fits into either category exclusively.</p>
-                    
                     <p>Around 100 years ago, a movement in Japan, known as Mingei (The Arts and Crafts Movement), began to seek beauty in everyday life.</p>
-                    
                     <p>I believe that the beauty basics needed for daily life are what allow for the continuation of a rich existence, and it is this philosophy that drives my creative work.</p>
                 </div>
             </div>
@@ -318,6 +428,106 @@
             <div class="download-links">
                 <a href="https://github.com/Soyadayo/michikoshida/raw/main/CVMichikoShida2025.pdf" class="download-link" target="_blank">CV</a>
                 <a href="https://github.com/Soyadayo/michikoshida/raw/main/PortofolioMichikoShida2025.pdf" class="download-link" target="_blank">Portfolio</a>
+            </div>
+
+            <div class="philosophy-quote">
+                <p>"The beauty basics needed for daily life are what allow for the continuation of a rich existence."</p>
+            </div>
+
+            <nav class="section-nav">
+                <div class="container">
+                    <div class="nav-buttons">
+                        <button class="nav-btn" onclick="toggleSection('biography')">CV</button>
+                        <button class="nav-btn" onclick="toggleSection('where-to-buy')">Where to Buy</button>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="content-section" id="biography">
+                <h2>CV</h2>
+                <p><strong>Michiko Shida</strong><br>
+                Ceramic Artist<br>
+                Speyerer Str. 5-7, 60327 Frankfurt am Main, Germany<br>
+                Email: <a href="mailto:ms@michiko-shida.com">ms@michiko-shida.com</a><br>
+                Phone: <a href="tel:+491732325242">+49 173 2325242</a></p>
+                <p>Born in Japan, Michiko Shida is a ceramic artist who blends traditional Japanese Mingei aesthetics with contemporary German craftsmanship. After relocating to Germany, she dedicated three years to intensive ceramic studies, mastering techniques and exploring the intersection of art and craft. Her work has been exhibited in various galleries and is available in select stores across Germany and internationally.</p>
+                <p>For a detailed overview of education, exhibitions, and achievements, download the full CV.</p>
+                <a href="https://github.com/Soyadayo/michikoshida/raw/main/CVMichikoShida2025.pdf" class="download-link" target="_blank">Download Full CV</a>
+            </div>
+
+            <div class="content-section" id="where-to-buy">
+                <h2>Where to Buy</h2>
+                <div class="stores-grid">
+                    <div class="store-group">
+                        <h3>Germany</h3>
+                        <div class="store-item">
+                            <strong>Berlin</strong><br>
+                            Life Florist<br>
+                            Maybachufer 39, 12047 Berlin<br>
+                            <a href="https://www.instagram.com/satokoberlin2017/" target="_blank">Instagram</a>
+                        </div>
+                        <div class="store-item">
+                            <strong>Düsseldorf</strong><br>
+                            Anmo Art / Cha<br>
+                            Bendemannstr. 18, 40210 Düsseldorf<br>
+                            <a href="https://anmo-art-cha.com" target="_blank">Website</a>
+                        </div>
+                        <div class="store-item">
+                            roberta<br>
+                            Nordstr. 71, 40477 Düsseldorf<br>
+                            <a href="https://roberta-thestore.com" target="_blank">Website</a>
+                        </div>
+                        <div class="store-item">
+                            <strong>Frankfurt am Main</strong><br>
+                            Distel Bio+<br>
+                            Keine Hochstr. 6, 60313 Frankfurt am Main<br>
+                            <a href="https://www.distelbioladen-frankfurt.de" target="_blank">Website</a>
+                        </div>
+                        <div class="store-item">
+                            <strong>Hamburg</strong><br>
+                            Blue sleeve select<br>
+                            Marktstrasse 100, 20357 Hamburg<br>
+                            <a href="http://www.luesleeve.de" target="_blank">Website</a>
+                        </div>
+                        <div class="store-item">
+                            Saroshi<br>
+                            Gertigstr. 35, 22303 Hamburg<br>
+                            <a href="http://www.saroshi.de" target="_blank">Website</a>
+                        </div>
+                        <div class="store-item">
+                            <strong>Nürnberg</strong><br>
+                            gabel tea<br>
+                            <a href="https://www.gabeltea.com" target="_blank">Website</a>
+                        </div>
+                        <div class="store-item">
+                            <strong>Kiel</strong><br>
+                            Tee Kontor Kiel<br>
+                            Holtenauer str. 126, 24105 Kiel<br>
+                            <a href="https://www.tee-kontor-kiel.de" target="_blank">Website</a>
+                        </div>
+                    </div>
+                    <div class="store-group">
+                        <h3>International</h3>
+                        <div class="store-item">
+                            <strong>Austria - Villach</strong><br>
+                            teehaus<br>
+                            Ledergasse 9, 9500 Villach<br>
+                            <a href="https://tee-haus.at" target="_blank">Website</a>
+                        </div>
+                        <div class="store-item">
+                            <strong>Denmark - Copenhagen</strong><br>
+                            Kaffeporten<br>
+                            Amagerbrogade 9, Copenhagen 2300<br>
+                            <a href="https://kaffeporten.dk" target="_blank">Website</a>
+                        </div>
+                        <div class="store-item">
+                            <strong>Hong Kong</strong><br>
+                            Gallery Credence<br>
+                            2/F, No.581 Nathan Road, Mongkok<br>
+                            <a href="https://gallerycredence.com" target="_blank">Website</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -337,7 +547,6 @@
                 <p>Speyerer Str. 5-7<br>
                 60327 Frankfurt am Main<br>
                 Germany</p>
-                
                 <p>Phone: <a href="tel:+491732325242">+49 173 2325242</a></p>
                 <p>Email: <a href="mailto:ms@michiko-shida.com">ms@michiko-shida.com</a></p>
                 <p>Website: <a href="https://www.michiko-shida.com" target="_blank">www.michiko-shida.com</a></p>
@@ -350,5 +559,38 @@
             <p>&copy; 2025 Michiko Shida. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        function toggleSection(sectionId) {
+            // Get all content sections
+            const sections = document.querySelectorAll('.content-section');
+            const buttons = document.querySelectorAll('.nav-btn');
+
+            // Hide all sections and remove active class from buttons
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show selected section and add active class to clicked button
+            const selectedSection = document.getElementById(sectionId);
+            const selectedButton = document.querySelector(`.nav-btn[onclick="toggleSection('${sectionId}')"]`);
+            
+            if (selectedSection && selectedButton) {
+                selectedSection.classList.add('active');
+                selectedButton.classList.add('active');
+            }
+        }
+
+        // Initialize with no section visible
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
