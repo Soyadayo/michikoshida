@@ -19,55 +19,47 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
         /* Header */
         header {
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 30px 0;
+            text-align: center;
+            border-bottom: 1px solid #eee;
         }
 
-        nav {
+        .logo {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            padding: 20px 0;
+            gap: 40px;
         }
 
-        .logo h1 {
-            font-size: 1.8rem;
+        .japanese-name {
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            font-size: 2rem;
             font-weight: 300;
             color: #2c3e50;
+            letter-spacing: 0.1em;
         }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #666;
+        .english-name h1 {
+            font-size: 2rem;
             font-weight: 300;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
             color: #2c3e50;
+            letter-spacing: 0.05em;
         }
 
         /* Hero Section */
         .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23f8f9fa" width="1200" height="800"/><circle fill="%23e9ecef" cx="300" cy="200" r="150"/><circle fill="%23dee2e6" cx="900" cy="400" r="200"/><circle fill="%23ced4da" cx="600" cy="600" r="100"/></svg>');
+            height: 70vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://github.com/Soyadayo/michikoshida/raw/main/background.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -77,217 +69,139 @@
             color: white;
         }
 
-        .hero-content h2 {
-            font-size: 3.5rem;
-            font-weight: 300;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
         .hero-content p {
-            font-size: 1.3rem;
+            font-size: 0.9rem;
             font-weight: 300;
-            max-width: 600px;
+            max-width: 500px;
             margin: 0 auto;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            color: rgba(255, 255, 255, 0.85);
+            text-shadow: none;
+            line-height: 1.7;
+            position: absolute;
+            bottom: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            opacity: 0.9;
+            letter-spacing: 0.02em;
         }
 
-        /* Sections */
-        section {
+        /* Main Content */
+        .main-content {
             padding: 80px 0;
         }
 
-        h2 {
-            font-size: 2.5rem;
-            font-weight: 300;
-            text-align: center;
-            margin-bottom: 50px;
-            color: #2c3e50;
-        }
-
-        .about-content {
+        .content-grid {
             display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 50px;
-            align-items: center;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 80px;
         }
 
-        .profile-image {
-            width: 100%;
-            max-width: 300px;
-            height: 400px;
-            background: #e9ecef;
-            border-radius: 10px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-style: italic;
-            color: #666;
+        .content-section h2 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            text-align: center;
         }
 
-        .about-text {
-            font-size: 1.1rem;
+        .content-section p {
+            font-size: 1rem;
             line-height: 1.8;
-            color: #555;
-        }
-
-        .about-text p {
+            color: #666;
             margin-bottom: 20px;
         }
 
-        /* Portfolio Grid */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .portfolio-item {
-            background: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .portfolio-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .portfolio-image {
-            height: 250px;
-            background: #f8f9fa;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-style: italic;
-            color: #666;
-        }
-
-        .portfolio-info {
-            padding: 20px;
-        }
-
-        .portfolio-info h3 {
-            font-size: 1.3rem;
-            font-weight: 400;
-            margin-bottom: 10px;
-            color: #2c3e50;
-        }
-
-        .portfolio-info p {
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .skill-item {
+        /* Download Links */
+        .download-links {
             text-align: center;
-            padding: 30px 20px;
+            margin: 40px 0;
         }
 
-        .skill-item h3 {
-            font-size: 1.4rem;
-            font-weight: 400;
-            margin-bottom: 15px;
-            color: #2c3e50;
+        .download-link {
+            display: inline-block;
+            margin: 0 20px;
+            padding: 12px 25px;
+            background: #3e5e3e;
+            color: white;
+            text-decoration: none;
+            border-radius: 3px;
+            transition: background 0.3s ease;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+            font-size: 0.9rem;
         }
 
-        .skill-item p {
-            color: #666;
-            line-height: 1.6;
+        .download-link:hover {
+            background: #4a6b4a;
         }
 
-        /* Biography Timeline */
-        .timeline {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .timeline-item {
-            display: flex;
-            margin-bottom: 30px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .timeline-year {
-            font-weight: bold;
-            color: #2c3e50;
-            width: 80px;
-            flex-shrink: 0;
-        }
-
-        .timeline-content {
-            margin-left: 30px;
-            color: #666;
-        }
-
-        /* Exhibitions */
-        .exhibitions-list {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .exhibition-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            padding: 20px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .exhibition-year {
-            font-weight: bold;
-            color: #2c3e50;
-            width: 80px;
-            flex-shrink: 0;
-        }
-
-        .exhibition-details {
-            flex-grow: 1;
-            margin-left: 30px;
-        }
-
-        .exhibition-title {
-            font-weight: 500;
-            color: #2c3e50;
-            margin-bottom: 5px;
-        }
-
-        .exhibition-location {
-            color: #666;
+        /* Philosophy Quote */
+        .philosophy-quote {
+            font-size: 1.1rem;
             font-style: italic;
+            color: #2c3e50;
+            margin: 40px 0;
+            padding: 30px;
+            border-left: 3px solid #2c3e50;
+            background: #f8f9fa;
+            text-align: left;
+        }
+
+        /* Instagram Section */
+        .instagram-section {
+            text-align: center;
+            padding: 60px 0;
+            background: #f8f9fa;
+        }
+
+        .instagram-section h2 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .instagram-section p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .instagram-link {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #3e5e3e;
+            color: white;
+            text-decoration: none;
+            border-radius: 3px;
+            transition: background 0.3s ease;
+            font-weight: 300;
+            font-size: 0.9rem;
+        }
+
+        .instagram-link:hover {
+            background: #4a6b4a;
         }
 
         /* Contact Section */
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            max-width: 800px;
-            margin: 0 auto;
+        .contact-section {
+            padding: 60px 0;
+            text-align: center;
         }
 
-        .contact-info h3 {
-            font-size: 1.4rem;
+        .contact-section h2 {
+            font-size: 1.8rem;
             font-weight: 400;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             color: #2c3e50;
         }
 
         .contact-info p {
             margin-bottom: 10px;
             color: #666;
+            font-size: 1rem;
         }
 
         .contact-info a {
@@ -304,45 +218,54 @@
             background: #2c3e50;
             color: #fff;
             text-align: center;
-            padding: 40px 0;
+            padding: 30px 0;
         }
 
         footer p {
             opacity: 0.8;
+            font-size: 0.9rem;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            .logo {
+                gap: 20px;
             }
 
-            .hero-content h2 {
-                font-size: 2.5rem;
+            .japanese-name {
+                font-size: 1.6rem;
+            }
+
+            .english-name h1 {
+                font-size: 1.6rem;
+            }
+
+            .hero {
+                height: 50vh;
             }
 
             .hero-content p {
-                font-size: 1.1rem;
+                font-size: 0.85rem;
+                padding: 0 30px;
+                bottom: 50px;
+                max-width: 400px;
             }
 
-            .about-content {
+            .content-grid {
                 grid-template-columns: 1fr;
-                text-align: center;
+                gap: 40px;
             }
 
-            .contact-content {
-                grid-template-columns: 1fr;
+            .download-link {
+                display: block;
+                margin: 10px auto;
+                max-width: 200px;
             }
 
-            .timeline-item,
-            .exhibition-item {
-                flex-direction: column;
-            }
-
-            .timeline-content,
-            .exhibition-details {
-                margin-left: 0;
-                margin-top: 10px;
+            .philosophy-quote {
+                font-size: 1rem;
+                padding: 20px;
+                margin: 30px 0;
             }
         }
 
@@ -350,233 +273,74 @@
         html {
             scroll-behavior: smooth;
         }
-
-        section {
-            scroll-margin-top: 100px;
-        }
     </style>
 </head>
 <body>
     <header>
-        <nav class="container">
+        <div class="container">
             <div class="logo">
-                <h1>Michiko Shida</h1>
+                <div class="japanese-name">志田美知子</div>
+                <div class="english-name">
+                    <h1>Michiko Shida</h1>
+                </div>
             </div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#biography">Biography</a></li>
-                <li><a href="#exhibitions">Exhibitions</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        </div>
     </header>
 
     <section class="hero">
         <div class="hero-content">
-            <h2>Michiko Shida</h2>
-            <p>Japanese ceramic artist bridging traditional aesthetics with contemporary German craftsmanship</p>
+            <p>Japanese ceramic artist bridging traditional Mingei aesthetics with contemporary German craftsmanship</p>
         </div>
     </section>
 
-    <section id="about">
+    <section class="main-content">
         <div class="container">
-            <h2>About</h2>
-            <div class="about-content">
-                <div class="profile-image">
-                    [Artist Portrait]
-                </div>
-                <div class="about-text">
-                    <p>I was born and raised in Japan, where I developed an interest in creative activities and explored various experiences, including studying ceramics. After moving to Germany I dedicated three years to focused study in the field.</p>
+            <div class="content-grid">
+                <div class="content-section">
+                    <h2>About</h2>
+                    <p>Born and raised in Japan, I developed an interest in creative activities and explored various experiences, including studying ceramics. After moving to Germany I dedicated three years to focused study in the field.</p>
                     
-                    <p>The approach to ceramics in Japan and Germany differs significantly, and as Germany is an industrialized country, I had the valuable opportunity to learn in detail about everything from materials to distribution. Although I have lived and created in Germany for a long time, my sense of aesthetics and philosophy are fundamentally rooted in Japan.</p>
+                    <p>The approach to ceramics in Japan and Germany differs significantly, and as Germany is an industrialized country, I had the valuable opportunity to learn in detail about everything from materials to distribution.</p>
                     
-                    <p>Ceramics can be categorized either as art or craft, but I do not believe it necessarily fits into either category exclusively. Around 100 years ago, a movement in Japan, known as Mingei (The Arts and Crafts Movement), began to seek beauty in everyday life. I believe that the beauty basics needed for daily life are what allow for the continuation of a rich existence, and it is this philosophy that drives my creative work.</p>
+                    <p>Although I have lived and created in Germany for a long time, my sense of aesthetics and philosophy are fundamentally rooted in Japan.</p>
                 </div>
+                
+                <div class="content-section">
+                    <h2>Philosophy</h2>
+                    <p>Ceramics can be categorized either as art or craft, but I do not believe it necessarily fits into either category exclusively.</p>
+                    
+                    <p>Around 100 years ago, a movement in Japan, known as Mingei (The Arts and Crafts Movement), began to seek beauty in everyday life.</p>
+                    
+                    <p>I believe that the beauty basics needed for daily life are what allow for the continuation of a rich existence, and it is this philosophy that drives my creative work.</p>
+                </div>
+            </div>
+
+            <div class="download-links">
+                <a href="https://github.com/Soyadayo/michikoshida/raw/main/CVMichikoShida2025.pdf" class="download-link" target="_blank">CV</a>
+                <a href="https://github.com/Soyadayo/michikoshida/raw/main/PortofolioMichikoShida2025.pdf" class="download-link" target="_blank">Portfolio</a>
             </div>
         </div>
     </section>
 
-    <section id="portfolio">
+    <section class="instagram-section">
         <div class="container">
-            <h2>Portfolio</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <div class="portfolio-image">[Tea Cups Collection]</div>
-                    <div class="portfolio-info">
-                        <h3>Tea Cups</h3>
-                        <p>Handcrafted ceramic tea cups showcasing traditional Japanese aesthetics with modern glazing techniques.</p>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item">
-                    <div class="portfolio-image">[Tea Sets Collection]</div>
-                    <div class="portfolio-info">
-                        <h3>Tea Sets</h3>
-                        <p>Complete tea ceremony sets combining functionality with artistic expression, featuring original glazes.</p>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item">
-                    <div class="portfolio-image">[Vase Collection]</div>
-                    <div class="portfolio-info">
-                        <h3>Vases</h3>
-                        <p>Elegant ceramic vases with unique textures and patterns, perfect for contemporary living spaces.</p>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item">
-                    <div class="portfolio-image">[Bowl Collection]</div>
-                    <div class="portfolio-info">
-                        <h3>Bowls & Vessels</h3>
-                        <p>Functional ceramic vessels demonstrating precision wheel throwing and innovative glaze combinations.</p>
-                    </div>
-                </div>
-            </div>
+            <h2>Latest Work</h2>
+            <p>Follow my ceramic journey and discover my latest creations</p>
+            <a href="https://www.instagram.com/michikoshida" class="instagram-link" target="_blank">@michikoshida</a>
         </div>
     </section>
 
-    <section id="skills" style="background: #f8f9fa;">
-        <div class="container">
-            <h2>Skills & Techniques</h2>
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <h3>Wheel Throwing</h3>
-                    <p>Proficient in wheel throwing techniques, able to create a wide range of functional and artistic ceramics with precision and attention to detail.</p>
-                </div>
-                
-                <div class="skill-item">
-                    <h3>Glaze Making</h3>
-                    <p>I have created and combined several original glazes, and since the possibilities for glazes are endless, I will continue to experiment with new combinations in the future.</p>
-                </div>
-                
-                <div class="skill-item">
-                    <h3>Precision & Focus</h3>
-                    <p>Able to produce over 100 identical pieces in an 8-hour workday with a margin of error of just 2mm, demonstrating exceptional concentration and precision.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="biography">
-        <div class="container">
-            <h2>Biography</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-year">1977</div>
-                    <div class="timeline-content">Born in Niigata, Japan</div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-year">1996</div>
-                    <div class="timeline-content">Moved to Düsseldorf, Germany</div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-year">2002</div>
-                    <div class="timeline-content">Internship at Keramische Werkstatt Margaretenhöhe in Essen, Germany</div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-year">2003-2006</div>
-                    <div class="timeline-content">Professional training ceramist by Sebastian Klose in Bad Honnef, Germany<br>
-                    State Technical school of glass and ceramic in Rheinbach, Germany</div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-year">2007</div>
-                    <div class="timeline-content">Internship at Porcelain manufacture Studio Piet Stockmans in Genk, Belgium</div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-year">2009-2020</div>
-                    <div class="timeline-content">Self-employed ceramist in Düsseldorf</div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-year">2020</div>
-                    <div class="timeline-content">Opened studio in Frankfurt am Main</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="exhibitions" style="background: #f8f9fa;">
-        <div class="container">
-            <h2>Selected Exhibitions</h2>
-            <div class="exhibitions-list">
-                <div class="exhibition-item">
-                    <div class="exhibition-year">2022</div>
-                    <div class="exhibition-details">
-                        <div class="exhibition-title">LAB106</div>
-                        <div class="exhibition-location">Frankfurt am Main</div>
-                    </div>
-                </div>
-                
-                <div class="exhibition-item">
-                    <div class="exhibition-year">2021</div>
-                    <div class="exhibition-details">
-                        <div class="exhibition-title">Maxgalerie</div>
-                        <div class="exhibition-location">Augsburg</div>
-                    </div>
-                </div>
-                
-                <div class="exhibition-item">
-                    <div class="exhibition-year">2019</div>
-                    <div class="exhibition-details">
-                        <div class="exhibition-title">Bauhaus Ceramic Show</div>
-                        <div class="exhibition-location">Hetjens ceramic Museum, Düsseldorf</div>
-                    </div>
-                </div>
-                
-                <div class="exhibition-item">
-                    <div class="exhibition-year">2018</div>
-                    <div class="exhibition-details">
-                        <div class="exhibition-title">Night Museum</div>
-                        <div class="exhibition-location">Technische Sammlung, Dresden</div>
-                    </div>
-                </div>
-                
-                <div class="exhibition-item">
-                    <div class="exhibition-year">2017</div>
-                    <div class="exhibition-details">
-                        <div class="exhibition-title">Der Pure Schein</div>
-                        <div class="exhibition-location">Postpost, Düsseldorf</div>
-                    </div>
-                    <div class="exhibition-details">
-                        <div class="exhibition-title">Prize of the State of North Rhine-Westphalia</div>
-                        <div class="exhibition-location">Museum for culture, Dortmund</div>
-                    </div>
-                </div>
-                
-                <div class="exhibition-item">
-                    <div class="exhibition-year">2012</div>
-                    <div class="exhibition-details">
-                        <div class="exhibition-title">Back from Japan</div>
-                        <div class="exhibition-location">HPZ-Stiftung, Düsseldorf</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
+    <section class="contact-section">
         <div class="container">
             <h2>Contact</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Studio Address</h3>
-                    <p>Speyerer Str. 5-7<br>
-                    60327 Frankfurt am Main<br>
-                    Germany</p>
-                </div>
+            <div class="contact-info">
+                <p>Speyerer Str. 5-7<br>
+                60327 Frankfurt am Main<br>
+                Germany</p>
                 
-                <div class="contact-info">
-                    <h3>Get in Touch</h3>
-                    <p>Phone: <a href="tel:+491732325242">+49 173 2325242</a></p>
-                    <p>Email: <a href="mailto:ms@michiko-shida.com">ms@michiko-shida.com</a></p>
-                    <p>Website: <a href="https://www.michiko-shida.com" target="_blank">www.michiko-shida.com</a></p>
-                </div>
+                <p>Phone: <a href="tel:+491732325242">+49 173 2325242</a></p>
+                <p>Email: <a href="mailto:ms@michiko-shida.com">ms@michiko-shida.com</a></p>
+                <p>Website: <a href="https://www.michiko-shida.com" target="_blank">www.michiko-shida.com</a></p>
             </div>
         </div>
     </section>
