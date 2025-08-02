@@ -18,96 +18,399 @@
             background-color: #fefefe;
         }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        header {
+        /* Fixed Navigation */
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            padding: 30px 0;
-            text-align: center;
-            border-bottom: 1px solid #eee;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        .logo {
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #666;
+            font-size: 0.95rem;
+            font-weight: 300;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #2c3e50;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: #2c3e50;
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: #2c3e50;
+        }
+
+        .social-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background-color: #666;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 40px 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 100vh;
+        }
+
+        section:first-of-type {
+            padding-top: 120px;
+        }
+
+        /* Home Section */
+        #home {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://github.com/Soyadayo/michikoshida/raw/main/background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            position: relative;
+        }
+
+        .home-content {
+            max-width: 600px;
+        }
+
+        .logo-home {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 40px;
+            margin-bottom: 40px;
         }
 
         .japanese-name {
             writing-mode: vertical-rl;
             text-orientation: upright;
-            font-size: 2rem;
+            font-size: 3rem;
             font-weight: 300;
-            color: #2c3e50;
             letter-spacing: 0.1em;
+            color: white;
         }
 
         .english-name h1 {
-            font-size: 2rem;
+            font-size: 3rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            color: white;
+        }
+
+        .home-content p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        /* Biography Section */
+        #biography {
+            background-color: white;
+        }
+
+        h2 {
+            font-size: 2.2rem;
             font-weight: 300;
             color: #2c3e50;
-            letter-spacing: 0.05em;
+            margin-bottom: 50px;
+            text-align: center;
         }
 
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://github.com/Soyadayo/michikoshida/raw/main/background.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .bio-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .bio-text p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .bio-details {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 5px;
+        }
+
+        .bio-details h3 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .bio-details p {
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .download-links {
             text-align: center;
+            margin-top: 40px;
+        }
+
+        .download-link {
+            display: inline-block;
+            margin: 0 15px;
+            padding: 12px 30px;
+            background: #3e5e3e;
             color: white;
-            position: relative;
-        }
-
-        .hero-content p {
-            font-size: 0.9rem;
+            text-decoration: none;
+            border-radius: 3px;
+            transition: background 0.3s ease;
             font-weight: 300;
-            max-width: 500px;
-            margin: 0 auto;
-            color: rgba(255, 255, 255, 0.85);
-            line-height: 1.7;
-            position: absolute;
-            bottom: 70px;
-            left: 50%;
-            transform: translateX(-50%);
-            text-align: center;
-            opacity: 0.9;
-            letter-spacing: 0.02em;
         }
 
-        /* Navigation for collapsible sections */
-        .section-nav {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 20px 0;
-            text-align: center;
-            border-bottom: 1px solid #eee;
+        .download-link:hover {
+            background: #4a6b4a;
         }
 
-        .nav-buttons {
+        /* Archive Section */
+        #archive {
+            background-color: #f8f9fa;
+        }
+
+        .archive-categories {
             display: flex;
             justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 10px 20px;
+            background: white;
+            border: 1px solid #ddd;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Georgia', serif;
+            font-size: 0.95rem;
+            border-radius: 3px;
+        }
+
+        .category-btn:hover,
+        .category-btn.active {
+            background: #3e5e3e;
+            color: white;
+            border-color: #3e5e3e;
+        }
+
+        .archive-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 30px;
         }
 
-        .nav-btn {
+        .archive-item {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .archive-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .archive-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 3px;
+            margin-bottom: 15px;
+        }
+
+        .archive-item h4 {
+            font-size: 1rem;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .archive-item p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Process Section */
+        #process {
+            background-color: white;
+        }
+
+        .process-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .process-placeholder {
+            padding: 60px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            color: #666;
+        }
+
+        /* Diary Section */
+        #diary {
+            background-color: #f8f9fa;
+        }
+
+        .medium-link {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #3e5e3e;
+            color: white;
+            text-decoration: none;
+            border-radius: 3px;
+            transition: background 0.3s ease;
+            font-weight: 300;
+            font-size: 1.1rem;
+        }
+
+        .medium-link:hover {
+            background: #4a6b4a;
+        }
+
+        /* Webshop Section */
+        #webshop {
+            background-color: white;
+        }
+
+        .shop-info {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            color: #666;
+        }
+
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .shop-item {
+            text-align: center;
+        }
+
+        .shop-item img {
+            width: 100%;
+            max-width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .shop-item h4 {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .shop-item .price {
+            font-size: 1.2rem;
+            color: #3e5e3e;
+            font-weight: 400;
+        }
+
+        /* Where to Buy Section */
+        #where-to-buy {
+            background-color: #f8f9fa;
+        }
+
+        .where-to-buy-toggle {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .where-to-buy-toggle-btn {
             background: none;
             border: 1px solid #ddd;
             color: #666;
             font-family: 'Georgia', serif;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 300;
             cursor: pointer;
             padding: 10px 20px;
@@ -115,159 +418,58 @@
             transition: all 0.3s ease;
         }
 
-        .nav-btn:hover {
+        .where-to-buy-toggle-btn:hover {
             color: #2c3e50;
-            background: #f8f9fa;
+            background: white;
             border-color: #ccc;
         }
 
-        .nav-btn.active {
-            color: #3e5e3e;
-            background: #f0f5f0;
-            border-color: #3e5e3e;
-        }
-
-        .nav-btn::after {
+        .where-to-buy-toggle-btn::after {
             content: ' ▼';
             font-size: 0.8rem;
             margin-left: 5px;
             transition: transform 0.3s ease;
+            display: inline-block;
         }
 
-        .nav-btn.active::after {
+        .where-to-buy-toggle-btn.active::after {
             transform: rotate(180deg);
         }
 
-        .main-content {
-            padding: 80px 0;
-        }
-
-        .content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 80px;
-        }
-
-        .content-section {
+        .stores-wrapper {
             display: none;
+            animation: fadeIn 0.3s ease;
         }
 
-        .content-section.active {
+        .stores-wrapper.active {
             display: block;
         }
 
-        .content-section h2 {
-            font-size: 1.8rem;
-            font-weight: 400;
-            margin-bottom: 30px;
-            color: #2c3e50;
-            text-align: center;
-        }
-
-        .content-section p {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        /* Download Links */
-        .download-links {
-            text-align: center;
-            margin: 40px 0;
-        }
-
-        .download-link {
-            display: inline-block;
-            margin: 0 20px;
-            padding: 12px 25px;
-            background: #3e5e3e;
-            color: white;
-            text-decoration: none;
-            border-radius: 3px;
-            transition: background 0.3s ease;
-            font-weight: 300;
-            letter-spacing: 0.02em;
-            font-size: 0.9rem;
-        }
-
-        .download-link:hover {
-            background: #4a6b4a;
-        }
-
-        /* Philosophy Quote */
-        .philosophy-quote {
-            font-size: 1.1rem;
-            font-style: italic;
-            color: #2c3e50;
-            margin: 40px 0;
-            padding: 30px;
-            border-left: 3px solid #2c3e50;
-            background: #f8f9fa;
-            text-align: left;
-        }
-
-        /* Instagram Section */
-        .instagram-section {
-            text-align: center;
-            padding: 60px 0;
-            background: #f8f9fa;
-        }
-
-        .instagram-section h2 {
-            font-size: 1.8rem;
-            font-weight: 400;
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
-
-        .instagram-section p {
-            font-size: 1rem;
-            color: #666;
-            margin-bottom: 30px;
-        }
-
-        .instagram-link {
-            display: inline-block;
-            padding: 12px 25px;
-            background: #3e5e3e;
-            color: white;
-            text-decoration: none;
-            border-radius: 3px;
-            transition: background 0.3s ease;
-            font-weight: 300;
-            font-size: 0.9rem;
-        }
-
-        .instagram-link:hover {
-            background: #4a6b4a;
-        }
-
-        /* Where to Buy Section */
-        .stores-grid {
+        .stores-container {
             display: grid;
             grid-template-columns: 2fr 1fr;
-            gap: 50px;
-            max-width: 1000px;
+            gap: 60px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
+        .store-group {
+            margin-bottom: 40px;
+        }
+
         .store-group h3 {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             font-weight: 400;
             color: #2c3e50;
-            margin-bottom: 25px;
-            border-bottom: 1px solid #ddd;
+            margin-bottom: 30px;
             padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
         }
 
         .store-item {
-            margin-bottom: 20px;
-            padding-bottom: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
             border-bottom: 1px solid #eee;
-            font-size: 0.9rem;
-            line-height: 1.6;
             color: #666;
         }
 
@@ -277,6 +479,8 @@
 
         .store-item strong {
             color: #2c3e50;
+            display: block;
+            margin-bottom: 5px;
         }
 
         .store-item a {
@@ -288,26 +492,33 @@
             text-decoration: underline;
         }
 
-        .contact-section {
-            padding: 60px 0;
-            text-align: center;
+        /* Contact Section */
+        #contact {
+            background-color: white;
         }
 
-        .contact-section h2 {
-            font-size: 1.8rem;
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.3rem;
             font-weight: 400;
-            margin-bottom: 30px;
             color: #2c3e50;
+            margin-bottom: 20px;
         }
 
         .contact-info p {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             color: #666;
-            font-size: 1rem;
         }
 
         .contact-info a {
-            color: #2c3e50;
+            color: #3e5e3e;
             text-decoration: none;
         }
 
@@ -315,12 +526,137 @@
             text-decoration: underline;
         }
 
+        .contact-form {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 5px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-family: 'Georgia', serif;
+            font-size: 0.95rem;
+        }
+
+        .contact-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            background: #3e5e3e;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-family: 'Georgia', serif;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background: #4a6b4a;
+        }
+
+        /* Imprint Section */
+        #imprint {
+            background-color: #f8f9fa;
+            min-height: auto;
+            padding: 40px;
+        }
+
+        .imprint-toggle {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .imprint-toggle-btn {
+            background: none;
+            border: 1px solid #ddd;
+            color: #666;
+            font-family: 'Georgia', serif;
+            font-size: 0.95rem;
+            font-weight: 300;
+            cursor: pointer;
+            padding: 10px 20px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+        }
+
+        .imprint-toggle-btn:hover {
+            color: #2c3e50;
+            background: #f8f9fa;
+            border-color: #ccc;
+        }
+
+        .imprint-toggle-btn::after {
+            content: ' ▼';
+            font-size: 0.8rem;
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .imprint-toggle-btn.active::after {
+            transform: rotate(180deg);
+        }
+
+        .imprint-content {
+            max-width: 800px;
+            margin: 0 auto;
+            color: #666;
+            line-height: 1.8;
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .imprint-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .imprint-content {
+            max-width: 800px;
+            margin: 0 auto;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .imprint-content h3 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: #2c3e50;
+            margin: 30px 0 15px;
+        }
+
+        .imprint-content p {
+            margin-bottom: 15px;
+        }
+
         /* Footer */
         footer {
             background: #2c3e50;
-            color: #fff;
+            color: white;
             text-align: center;
-            padding: 30px 0;
+            padding: 30px;
         }
 
         footer p {
@@ -328,224 +664,476 @@
             font-size: 0.9rem;
         }
 
-        /* Responsive Design */
+        /* Mobile Responsive */
         @media (max-width: 768px) {
-            .logo {
+            .nav-wrapper {
+                padding: 15px 20px;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            section {
+                padding: 80px 20px 60px;
+            }
+
+            .logo-home {
+                flex-direction: column;
                 gap: 20px;
             }
 
             .japanese-name {
-                font-size: 1.6rem;
+                font-size: 2rem;
+                writing-mode: horizontal-tb;
             }
 
             .english-name h1 {
-                font-size: 1.6rem;
+                font-size: 2rem;
             }
 
-            .hero {
-                height: 100vh;
-            }
-
-            .hero-content p {
-                font-size: 0.85rem;
-                padding: 0 30px;
-                bottom: 50px;
-                max-width: 400px;
-            }
-
-            .content-grid {
+            .bio-content,
+            .contact-content,
+            .stores-container {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
 
-            .stores-grid {
+            .archive-grid,
+            .shop-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .store-item {
-                font-size: 0.85rem;
-            }
-
-            .nav-buttons {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .download-link {
-                display: block;
-                margin: 10px auto;
-                max-width: 200px;
-            }
-
-            .philosophy-quote {
-                font-size: 1rem;
-                padding: 20px;
-                margin: 30px 0;
             }
         }
 
-        /* Smooth Scrolling */
+        /* Smooth scrolling */
         html {
             scroll-behavior: smooth;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">
+    <!-- Fixed Navigation -->
+    <nav class="nav-container">
+        <div class="nav-wrapper">
+            <div class="nav-left">
+                <div class="nav-menu" id="navMenu">
+                    <a href="#home">Home</a>
+                    <a href="#biography">Biography</a>
+                    <a href="#works">Works</a>
+                    <a href="#archive">Archive</a>
+                    <a href="#process">Process</a>
+                    <a href="#diary">Diary</a>
+                    <a href="#webshop">Webshop</a>
+                    <a href="#where-to-buy">Where to Buy</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#imprint">Imprint</a>
+                    <a href="https://www.instagram.com/michikoshida" target="_blank" class="social-icon">
+                        <svg fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="home-content">
+            <div class="logo-home">
                 <div class="japanese-name">志田美知子</div>
                 <div class="english-name">
                     <h1>Michiko Shida</h1>
                 </div>
             </div>
-        </div>
-    </header>
-
-    <section class="hero">
-        <div class="hero-content">
             <p>Japanese ceramic artist bridging traditional Mingei aesthetics with contemporary German craftsmanship</p>
         </div>
     </section>
 
-    <section class="main-content">
-        <div class="container">
-            <div class="content-grid">
-                <div class="content-section">
-                    <h2>About</h2>
-                    <p>Born and raised in Japan, I developed an interest in creative activities and explored various experiences, including studying ceramics. After moving to Germany I dedicated three years to focused study in the field.</p>
-                    <p>The approach to ceramics in Japan and Germany differs significantly, and as Germany is an industrialized country, I had the valuable opportunity to learn in detail about everything from materials to distribution.</p>
-                    <p>Although I have lived and created in Germany for a long time, my sense of aesthetics and philosophy are fundamentally rooted in Japan.</p>
-                </div>
-                
-                <div class="content-section">
-                    <h2>Philosophy</h2>
-                    <p>Ceramics can be categorized either as art or craft, but I do not believe it necessarily fits into either category exclusively.</p>
-                    <p>Around 100 years ago, a movement in Japan, known as Mingei (The Arts and Crafts Movement), began to seek beauty in everyday life.</p>
-                    <p>I believe that the beauty basics needed for daily life are what allow for the continuation of a rich existence, and it is this philosophy that drives my creative work.</p>
-                </div>
+    <!-- Biography Section -->
+    <section id="biography">
+        <h2>Biography</h2>
+        <div class="bio-content">
+            <div class="bio-text">
+                <p>Born and raised in Japan, I developed an interest in creative activities and explored various experiences, including studying ceramics. After moving to Germany I dedicated three years to focused study in the field.</p>
+                <p>The approach to ceramics in Japan and Germany differs significantly, and as Germany is an industrialized country, I had the valuable opportunity to learn in detail about everything from materials to distribution.</p>
+                <p>Although I have lived and created in Germany for a long time, my sense of aesthetics and philosophy are fundamentally rooted in Japan.</p>
+                <p>Ceramics can be categorized either as art or craft, but I do not believe it necessarily fits into either category exclusively. Around 100 years ago, a movement in Japan, known as Mingei (The Arts and Crafts Movement), began to seek beauty in everyday life.</p>
+                <p>I believe that the beauty basics needed for daily life are what allow for the continuation of a rich existence, and it is this philosophy that drives my creative work.</p>
             </div>
-
-            <div class="download-links">
-                <a href="https://github.com/Soyadayo/michikoshida/raw/c692c17aca692a82d59eadd84f669a45e586d137/CVMichikoShida2025.pdf" class="download-link" target="_blank">CV</a>
-                <a href="https://github.com/Soyadayo/michikoshida/raw/c692c17aca692a82d59eadd84f669a45e586d137/PortofolioMichikoShida2025.pdf" class="download-link" target="_blank">Portfolio</a>
+            <div class="bio-details">
+                <h3>Details</h3>
+                <p><strong>Michiko Shida</strong></p>
+                <p>Ceramic Artist</p>
+                <p>Speyerer Str. 5-7</p>
+                <p>60327 Frankfurt am Main</p>
+                <p>Germany</p>
+                <p>Email: ms@michiko-shida.com</p>
+                <p>Phone: +49 173 2325242</p>
             </div>
+        </div>
+        <div class="download-links">
+            <a href="https://github.com/Soyadayo/michikoshida/raw/c692c17aca692a82d59eadd84f669a45e586d137/CVMichikoShida2025.pdf" class="download-link" target="_blank">Download CV</a>
+            <a href="https://github.com/Soyadayo/michikoshida/raw/c692c17aca692a82d59eadd84f669a45e586d137/PortofolioMichikoShida2025.pdf" class="download-link" target="_blank">Download Portfolio</a>
+        </div>
+    </section>
 
-            <div class="philosophy-quote">
-                <p>"The beauty basics needed for daily life are what allow for the continuation of a rich existence."</p>
+    <!-- Works Section -->
+    <section id="works" style="background-color: white;">
+        <h2>Works</h2>
+        <div class="archive-categories">
+            <button class="category-btn active" onclick="filterArchive('all')">All</button>
+            <button class="category-btn" onclick="filterArchive('bowls')">Bowls</button>
+            <button class="category-btn" onclick="filterArchive('plates')">Plates</button>
+            <button class="category-btn" onclick="filterArchive('cups')">Cups</button>
+            <button class="category-btn" onclick="filterArchive('vases')">Vases</button>
+            <button class="category-btn" onclick="filterArchive('teapots')">Teapots</button>
+        </div>
+        <div class="archive-grid" id="archiveGrid">
+            <!-- Archive items will be loaded here -->
+            <div class="archive-item" data-category="bowls">
+                <img src="https://via.placeholder.com/300x200/f0f0f0/666?text=Bowl+1" alt="Bowl">
+                <h4>Tea Bowl Series</h4>
+                <p>Stoneware, 2024</p>
             </div>
+            <div class="archive-item" data-category="plates">
+                <img src="https://via.placeholder.com/300x200/f0f0f0/666?text=Plate+1" alt="Plate">
+                <h4>Dinner Plate</h4>
+                <p>Porcelain, 2024</p>
+            </div>
+            <div class="archive-item" data-category="cups">
+                <img src="https://via.placeholder.com/300x200/f0f0f0/666?text=Cup+1" alt="Cup">
+                <h4>Coffee Cup Set</h4>
+                <p>Stoneware, 2024</p>
+            </div>
+            <div class="archive-item" data-category="vases">
+                <img src="https://via.placeholder.com/300x200/f0f0f0/666?text=Vase+1" alt="Vase">
+                <h4>Flower Vase</h4>
+                <p>Earthenware, 2024</p>
+            </div>
+        </div>
+    </section>
 
-            <nav class="section-nav">
-                <div class="container">
-                    <div class="nav-buttons">
-                        <button class="nav-btn" onclick="toggleSection('biography')">CV</button>
-                        <button class="nav-btn" onclick="toggleSection('where-to-buy')">Where to Buy</button>
+    <!-- Archive Section -->
+    <section id="archive">
+        <h2>Archive</h2>
+        <div class="archive-toggle" style="text-align: center; margin-bottom: 30px;">
+            <button class="archive-toggle-btn" onclick="toggleArchive()" style="background: none; border: 1px solid #ddd; color: #666; font-family: 'Georgia', serif; font-size: 0.95rem; font-weight: 300; cursor: pointer; padding: 10px 20px; border-radius: 3px; transition: all 0.3s ease;">Show Archive</button>
+        </div>
+        <div class="archive-content" id="archiveContent" style="display: none; max-width: 800px; margin: 0 auto; color: #666; line-height: 1.8;">
+            <div class="archive-entry" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+                <strong>02.-14.05.2022</strong> <strong>LAB106 Pop-Up at MyZeil</strong><br>
+                Zeil 106, 60313 Frankfurt am Main
+            </div>
+            <div class="archive-entry" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+                <strong>April 2020</strong> <strong>Move from Düsseldorf to Frankfurt am Main</strong>
+            </div>
+            <div class="archive-entry" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+                <strong>06.-07.03.2020</strong> <strong>Pop-Up at Wunderwerk</strong><br>
+                Ackerstr. 133, 40233 Düsseldorf
+            </div>
+            <div class="archive-entry" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+                <strong>23.11.2019 1-3 pm</strong> <strong>Lecture and Artist talk "A life with ceramics"</strong><br>
+                Hetjens Deutsches Keramikmuseum<br>
+                Schulstr. 4, 40213 Düsseldorf<br>
+                www.duesseldorf.de/hetjens
+            </div>
+            <div class="archive-entry" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+                <strong>29.-30.11.2019 11am-5pm</strong> <strong>Open Atelier ESDE bags, HCK Interior, Michiko Shida</strong><br>
+                Bachstr. 66-66a, 40217 Düsseldorf
+            </div>
+            <div class="archive-entry" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+                <strong>16.02.2019 - 12.05.2019</strong> <strong>Bauhaus-Jubiläums in NRW</strong><br>
+                Hetjens Deutsches Keramikmuseum<br>
+                Schulstr. 4, 40213 Düsseldorf
+            </div>
+            <div class="archive-entry" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+                <strong>22.11. - 05.12.2018</strong> <strong>Ceramics Exhibition</strong><br>
+                enishi<br>
+                Pappelallee 86, 10437 Berlin<br>
+                www.enishi-japanese-antique.com
+            </div>
+            <div class="archive-entry" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+                <strong>30.06.2018</strong> <strong>Museumsnacht Dresden</strong><br>
+                Technische Sammlungen Dresden<br>
+                Junghansstr. 1-3, 01277 Dresden<br>
+                www.tsd.de
+            </div>
+            <div class="archive-entry" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+                <strong>25. - 26.05.2018</strong> <strong>Workshop with Beginners</strong><br>
+                Anmo<br>
+                Bendemannstr. 18, 40210 Düsseldorf<br>
+                www.anmo-art-cha.com
+            </div>
+            <div class="archive-entry" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+                <strong>02. - 19.02.2018</strong> <strong>Auf Zuruf: Japan</strong><br>
+                P-Kultur<br>
+                Oststr. 118, 40210 Düsseldorf<br>
+                www.dmitte.de
+            </div>
+            <div class="archive-entry" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+                <strong>03.02.2018 13-17h</strong> <strong>Sample Sale</strong><br>
+                Atelier Michiko Shida<br>
+                Bachstr. 66a, 40217 Düsseldorf<br>
+                www.facebook.com/events/185577242029405/
+            </div>
+            <div class="archive-entry" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+                <strong>30.11.2017 - 29.01.2018</strong> <strong>Meet the Designer Michiko Shida</strong><br>
+                roberta<br>
+                Nordstr. 71, 40477 Düsseldorf
+            </div>
+            <div class="archive-entry" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+                <strong>29.09. - 07.10.2017</strong> <strong>Der pure Schein - Design Exhibition</strong><br>
+                postPost Grand Central<br>
+                Erkratherstr.33, 40233 Düsseldorf
+            </div>
+            <div class="archive-entry" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+                <strong>09.09. - 05.11.2017</strong> <strong>Manufactum Staatspreis NRW</strong><br>
+                Museum für Kunst und Kulturgeschichte Dortmund<br>
+                Hansastraße 3, 44137 Dortmund
+            </div>
+            <div class="archive-entry" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+                <strong>29. - 30.07.2017</strong> <strong>Baum.Stein.Hütte featuring mit Michiko Shida / Keramik</strong><br>
+                9k Galerie<br>
+                Hardt 9k, 47877 Willich<br>
+                www.9k-galerie.de
+            </div>
+            <div class="archive-entry" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+                <strong>24. - 27.03.2017</strong> <strong>Zwischen ll Raum</strong><br>
+                Kasernstr. 6, 40213 Düsseldorf
+            </div>
+            <div class="archive-entry" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+                <strong>12.12.2015 - 30.01.2016</strong> <strong>Winter Austellung</strong><br>
+                Yoda bei Maruo<br>
+                Stresemannstrasse 28, 40210 Düsseldorf
+            </div>
+            <div class="archive-entry" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+                <strong>Die Genusshandwerker präsentieren ihr Weihnachtsmenü mit Keramik von Michiko Shida</strong><br>
+                Genusshandwerker<br>
+                Hoffeldstraße 31, 40235 Düsseldorf<br>
+                www.genusshandwerker.de
+            </div>
+            <div class="archive-entry" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+                <strong>01. - 05.04.2015</strong> <strong>MEAN AW 2015 Japan Exhibition</strong><br>
+                PMC Permanent & PMC Coffee<br>
+                201-4-21 Nakameguro, Meguro-ku, Tokyo, Japan<br>
+                info@mean.co.jp<br>
+                www.pmc-permanent.com
+            </div>
+            <div class="archive-entry" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+                <strong>13. - 18.03.2015</strong> <strong>INTERNORGA 2015</strong><br>
+                Messe Hamburg<br>
+                Messeplatz 1, 20357 Hamburg
+            </div>
+            <div class="archive-entry" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+                <strong>29.11.2014 - 24.01.2015</strong> <strong>TIME AND NOW</strong><br>
+                Michiko Shida - Keramik<br>
+                Stefan Schwander - Regal für M.<br>
+                Yoda bei Maruo<br>
+                Stresemannstr. 28, 40210 Düsseldorf
+            </div>
+            <div class="archive-entry" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+                <strong>25.10.2014</strong> <strong>Verkaufsausstellung</strong><br>
+                Paris Miki<br>
+                Königstraße 9, 40212 Düsseldorf
+            </div>
+            <div class="archive-entry" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+                <strong>12.07.2014</strong> <strong>SOMMERLICHT</strong><br>
+                enishi<br>
+                Pappelallee 86, 10437 Berlin
+            </div>
+            <div class="archive-entry" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+                <strong>02.12.2014</strong> <strong>Empfang anlässlich des Geburtstags des japanischen Kaiser Akihito</strong><br>
+                Nikko Hotel Düsseldorf<br>
+                Immermannstraße 41, 40210 Düsseldorf
+            </div>
+            <div class="archive-entry" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+                <strong>24.08.2013</strong> <strong>YOU & SUMMER, SAKE & POTTERY</strong><br>
+                enishi<br>
+                Pappelallee 86, 10437 Berlin
+            </div>
+            <div class="archive-entry" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+                <strong>30.11.2012</strong> <strong>LASST EUCH ÜBERRASCHEN</strong><br>
+                Teilmöbliert<br>
+                Achenbachstraße 19, 40237 Düsseldorf
+            </div>
+            <div class="archive-entry" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+                <strong>17.03.2012</strong> <strong>FASHION-RACE</strong><br>
+                Galopprennbahn Krefeld<br>
+                An der Rennbahn 4, 47800 Krefeld
+            </div>
+            <div class="archive-entry" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+                <strong>10.03.2012</strong> <strong>BACK FROM JAPAN</strong><br>
+                Gästezimmer at Hans Peter Zimmer Stiftung, Düsseldorf<br>
+                Ronsdorfer Str. 77a, 40233 Düsseldorf<br>
+                Participating artists: Isabella Fürnk, Yasutake Iwana, Taka Kagitomi, Kaoli Mashio, Hiroyuki Murase, Thomas Neumann, Wolfgang Schäfer, Michiko Shida, Oliver Sieber, Katja Stuke, Tomoko Tezuka<br>
+                www.weltkunstzimmer.de
+            </div>
+            <div class="archive-entry" style="margin-bottom: 25px; padding-bottom: 20px;">
+                <strong>07.07.2011</strong> <strong>HORIZON & ENISHI</strong><br>
+                enishi<br>
+                Pappelallee 86, 10437 Berlin
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process">
+        <h2>Process</h2>
+        <div class="process-content">
+            <div class="process-placeholder">
+                <p>Information about ceramic making process, tools, and techniques will be added here.</p>
+                <p>This section will help general audiences understand the knowledge that ceramic artists possess.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diary Section -->
+    <section id="diary">
+        <h2>Diary</h2>
+        <div style="text-align: center;">
+            <a href="https://medium.com/@michikoshida" 
+               target="_blank" 
+               class="medium-link">
+                Read on Medium
+            </a>
+        </div>
+    </section>
+
+    <!-- Webshop Section -->
+    <section id="webshop">
+        <h2>Webshop</h2>
+        <div class="shop-info">
+            <p>Our webshop opens for a few days each month with special ceramic sets.</p>
+            <p>Next opening: Coming soon</p>
+        </div>
+        <div class="shop-grid">
+            <div class="shop-item">
+                <img src="https://via.placeholder.com/300x300/f0f0f0/666?text=Tea+Set" alt="Tea Set">
+                <h4>Tea Ceremony Set</h4>
+                <p class="price">€180</p>
+            </div>
+            <div class="shop-item">
+                <img src="https://via.placeholder.com/300x300/f0f0f0/666?text=Dinner+Set" alt="Dinner Set">
+                <h4>Dinner Set for Two</h4>
+                <p class="price">€220</p>
+            </div>
+            <div class="shop-item">
+                <img src="https://via.placeholder.com/300x300/f0f0f0/666?text=Coffee+Set" alt="Coffee Set">
+                <h4>Coffee Cup Collection</h4>
+                <p class="price">€95</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Where to Buy Section -->
+    <section id="where-to-buy">
+        <h2>Where to Buy</h2>
+        <div class="where-to-buy-toggle">
+            <button class="where-to-buy-toggle-btn" onclick="toggleWhereToBuy()">Show Stores</button>
+        </div>
+        <div class="stores-wrapper" id="storesWrapper">
+            <div class="stores-container">
+                <div class="store-group">
+                    <h3>Germany</h3>
+                    <div class="store-item">
+                        <strong>Berlin</strong>
+                        Life Florist<br>
+                        Maybachufer 39, 12047 Berlin<br>
+                        <a href="https://www.instagram.com/satokoberlin2017/" target="_blank">Instagram</a>
+                    </div>
+                    <div class="store-item">
+                        <strong>Düsseldorf</strong>
+                        Anmo Art / Cha<br>
+                        Bendemannstr. 18, 40210 Düsseldorf<br>
+                        <a href="https://anmo-art-cha.com" target="_blank">Website</a>
+                    </div>
+                    <div class="store-item">
+                        roberta<br>
+                        Nordstr. 71, 40477 Düsseldorf<br>
+                        <a href="https://roberta-thestore.com" target="_blank">Website</a>
+                    </div>
+                    <div class="store-item">
+                        <strong>Frankfurt am Main</strong>
+                        Distel Bio+<br>
+                        Keine Hochstr. 6, 60313 Frankfurt am Main<br>
+                        <a href="https://www.distelbioladen-frankfurt.de" target="_blank">Website</a>
+                    </div>
+                    <div class="store-item">
+                        <strong>Hamburg</strong>
+                        Blue sleeve select<br>
+                        Marktstrasse 100, 20357 Hamburg<br>
+                        <a href="http://www.luesleeve.de" target="_blank">Website</a>
+                    </div>
+                    <div class="store-item">
+                        Saroshi<br>
+                        Gertigstr. 35, 22303 Hamburg<br>
+                        <a href="http://www.saroshi.de" target="_blank">Website</a>
+                    </div>
+                    <div class="store-item">
+                        <strong>Nürnberg</strong>
+                        gabel tea<br>
+                        <a href="https://www.gabeltea.com" target="_blank">Website</a>
+                    </div>
+                    <div class="store-item">
+                        <strong>Kiel</strong>
+                        Tee Kontor Kiel<br>
+                        Holtenauer str. 126, 24105 Kiel<br>
+                        <a href="https://www.tee-kontor-kiel.de" target="_blank">Website</a>
                     </div>
                 </div>
-            </nav>
-
-            <div class="content-section" id="biography">
-                <h2>CV</h2>
-                <p><strong>Michiko Shida</strong><br>
-                Ceramic Artist<br>
-                Speyerer Str. 5-7, 60327 Frankfurt am Main, Germany<br>
-                Email: <a href="mailto:ms@michiko-shida.com">ms@michiko-shida.com</a><br>
-                Phone: <a href="tel:+491732325242">+49 173 2325242</a></p>
-                <p>Born in Japan, Michiko Shida is a ceramic artist who blends traditional Japanese Mingei aesthetics with contemporary German craftsmanship. After relocating to Germany, she dedicated three years to intensive ceramic studies, mastering techniques and exploring the intersection of art and craft. Her work has been exhibited in various galleries and is available in select stores across Germany and internationally.</p>
-                <p>For a detailed overview of education, exhibitions, and achievements, download the full CV.</p>
-                <a href="https://github.com/Soyadayo/michikoshida/raw/c692c17aca692a82d59eadd84f669a45e586d137/CVMichikoShida2025.pdf" class="download-link" target="_blank">Download Full CV</a>
-            </div>
-
-            <div class="content-section" id="where-to-buy">
-                <h2>Where to Buy</h2>
-                <div class="stores-grid">
-                    <div class="store-group">
-                        <h3>Germany</h3>
-                        <div class="store-item">
-                            <strong>Berlin</strong><br>
-                            Life Florist<br>
-                            Maybachufer 39, 12047 Berlin<br>
-                            <a href="https://www.instagram.com/satokoberlin2017/" target="_blank">Instagram</a>
-                        </div>
-                        <div class="store-item">
-                            <strong>Düsseldorf</strong><br>
-                            Anmo Art / Cha<br>
-                            Bendemannstr. 18, 40210 Düsseldorf<br>
-                            <a href="https://anmo-art-cha.com" target="_blank">Website</a>
-                        </div>
-                        <div class="store-item">
-                            roberta<br>
-                            Nordstr. 71, 40477 Düsseldorf<br>
-                            <a href="https://roberta-thestore.com" target="_blank">Website</a>
-                        </div>
-                        <div class="store-item">
-                            <strong>Frankfurt am Main</strong><br>
-                            Distel Bio+<br>
-                            Keine Hochstr. 6, 60313 Frankfurt am Main<br>
-                            <a href="https://www.distelbioladen-frankfurt.de" target="_blank">Website</a>
-                        </div>
-                        <div class="store-item">
-                            <strong>Hamburg</strong><br>
-                            Blue sleeve select<br>
-                            Marktstrasse 100, 20357 Hamburg<br>
-                            <a href="http://www.luesleeve.de" target="_blank">Website</a>
-                        </div>
-                        <div class="store-item">
-                            Saroshi<br>
-                            Gertigstr. 35, 22303 Hamburg<br>
-                            <a href="http://www.saroshi.de" target="_blank">Website</a>
-                        </div>
-                        <div class="store-item">
-                            <strong>Nürnberg</strong><br>
-                            gabel tea<br>
-                            <a href="https://www.gabeltea.com" target="_blank">Website</a>
-                        </div>
-                        <div class="store-item">
-                            <strong>Kiel</strong><br>
-                            Tee Kontor Kiel<br>
-                            Holtenauer str. 126, 24105 Kiel<br>
-                            <a href="https://www.tee-kontor-kiel.de" target="_blank">Website</a>
-                        </div>
+                <div class="store-group">
+                    <h3>International</h3>
+                    <div class="store-item">
+                        <strong>Austria - Villach</strong>
+                        teehaus<br>
+                        Ledergasse 9, 9500 Villach<br>
+                        <a href="https://tee-haus.at" target="_blank">Website</a>
                     </div>
-                    <div class="store-group">
-                        <h3>International</h3>
-                        <div class="store-item">
-                            <strong>Austria - Villach</strong><br>
-                            teehaus<br>
-                            Ledergasse 9, 9500 Villach<br>
-                            <a href="https://tee-haus.at" target="_blank">Website</a>
-                        </div>
-                        <div class="store-item">
-                            <strong>Denmark - Copenhagen</strong><br>
-                            Kaffeporten<br>
-                            Amagerbrogade 9, Copenhagen 2300<br>
-                            <a href="https://kaffeporten.dk" target="_blank">Website</a>
-                        </div>
-                        <div class="store-item">
-                            <strong>Hong Kong</strong><br>
-                            Gallery Credence<br>
-                            2/F, No.581 Nathan Road, Mongkok<br>
-                            <a href="https://gallerycredence.com" target="_blank">Website</a>
-                        </div>
+                    <div class="store-item">
+                        <strong>Denmark - Copenhagen</strong>
+                        Kaffeporten<br>
+                        Amagerbrogade 9, Copenhagen 2300<br>
+                        <a href="https://kaffeporten.dk" target="_blank">Website</a>
+                    </div>
+                    <div class="store-item">
+                        <strong>Hong Kong</strong>
+                        Gallery Credence<br>
+                        2/F, No.581 Nathan Road, Mongkok<br>
+                        <a href="https://gallerycredence.com" target="_blank">Website</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="instagram-section">
-        <div class="container">
-            <h2>Latest Work</h2>
-            <p>Follow my ceramic journey and discover my latest creations</p>
-            <a href="https://www.instagram.com/michikoshida" class="instagram-link" target="_blank">@michikoshida</a>
-        </div>
-    </section>
-
-    <section class="contact-section">
-        <div class="container">
-            <h2>Contact</h2>
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact-content">
             <div class="contact-info">
+                <h3>Workshop Address</h3>
                 <p>Speyerer Str. 5-7<br>
                 60327 Frankfurt am Main<br>
                 Germany</p>
@@ -553,46 +1141,169 @@
                 <p>Email: <a href="mailto:ms@michiko-shida.com">ms@michiko-shida.com</a></p>
                 <p>Website: <a href="https://www.michiko-shida.com" target="_blank">www.michiko-shida.com</a></p>
             </div>
+            <div class="contact-form">
+                <h3>Send Message</h3>
+                <form onsubmit="handleContactForm(event)">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Michiko Shida. All rights reserved.</p>
+    <!-- Imprint Section -->
+    <section id="imprint">
+        <div class="imprint-toggle">
+            <button class="imprint-toggle-btn" onclick="toggleImprint()">Imprint & Privacy Policy</button>
+            <div class="imprint-content" id="imprintContent">
+                <h3>Legal Notice</h3>
+                <p><strong>Michiko Shida</strong><br>
+                Ceramic Artist<br>
+                Speyerer Str. 5-7<br>
+                60327 Frankfurt am Main<br>
+                Germany</p>
+                
+                <h3>Contact</h3>
+                <p>Phone: +49 173 2325242<br>
+                Email: ms@michiko-shida.com</p>
+                
+                <h3>VAT ID</h3>
+                <p>VAT identification number according to §27a UStG: [To be added]</p>
+                
+                <h3>Privacy Policy (GDPR)</h3>
+                <p>This website respects your privacy and complies with the EU General Data Protection Regulation (GDPR). We collect only essential data necessary for the operation of this website.</p>
+                
+                <h3>Data Collection</h3>
+                <p>When you visit our website, certain technical data is automatically collected by our web server for operational purposes. This includes your IP address, browser type, operating system, and access times. This data is processed based on our legitimate interests (Art. 6(1)(f) GDPR) and is deleted after a maximum of 7 days.</p>
+                
+                <h3>Contact Form</h3>
+                <p>When you use our contact form, we collect the information you provide (name, email, message) to process your inquiry. This data is processed based on your consent (Art. 6(1)(a) GDPR) and will be deleted after your inquiry has been fully processed.</p>
+                
+                <h3>Your Rights</h3>
+                <p>Under the GDPR, you have the right to:</p>
+                <ul style="margin-left: 20px; color: #666;">
+                    <li>Access your personal data</li>
+                    <li>Correct inaccurate data</li>
+                    <li>Request deletion of your data</li>
+                    <li>Restrict processing of your data</li>
+                    <li>Object to data processing</li>
+                    <li>Data portability</li>
+                </ul>
+                
+                <h3>Cookies</h3>
+                <p>This website uses only essential cookies necessary for the proper functioning of the website. No tracking or marketing cookies are used.</p>
+                
+                <p style="margin-top: 30px;"><em>Last updated: August 2025</em></p>
+            </div>
         </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Michiko Shida. All rights reserved.</p>
     </footer>
 
     <script>
-        function toggleSection(sectionId) {
-            // Get all content sections
-            const sections = document.querySelectorAll('.content-section');
-            const buttons = document.querySelectorAll('.nav-btn');
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
 
-            // Hide all sections and remove active class from buttons
-            sections.forEach(section => {
-                section.classList.remove('active');
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navMenu').classList.remove('active');
             });
-            buttons.forEach(button => {
-                button.classList.remove('active');
-            });
+        });
 
-            // Show selected section and add active class to clicked button
-            const selectedSection = document.getElementById(sectionId);
-            const selectedButton = document.querySelector(`.nav-btn[onclick="toggleSection('${sectionId}')"]`);
+        // Archive filter
+        function filterArchive(category) {
+            const items = document.querySelectorAll('.archive-item');
+            const buttons = document.querySelectorAll('.category-btn');
             
-            if (selectedSection && selectedButton) {
-                selectedSection.classList.add('active');
-                selectedButton.classList.add('active');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            items.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Contact form handler
+        function handleContactForm(event) {
+            event.preventDefault();
+            alert('Thank you for your message. We will get back to you soon!');
+            event.target.reset();
+        }
+
+        // Add active navigation indicator on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-menu a:not(.social-icon)');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Imprint toggle
+        function toggleImprint() {
+            const content = document.getElementById('imprintContent');
+            const button = document.querySelector('.imprint-toggle-btn');
+            
+            content.classList.toggle('active');
+            button.classList.toggle('active');
+        }
+
+        // Where to Buy toggle
+        function toggleWhereToBuy() {
+            const wrapper = document.getElementById('storesWrapper');
+            const button = document.querySelector('.where-to-buy-toggle-btn');
+            
+            wrapper.classList.toggle('active');
+            button.classList.toggle('active');
+            
+            if (wrapper.classList.contains('active')) {
+                button.textContent = 'Hide Stores';
+            } else {
+                button.textContent = 'Show Stores';
             }
         }
 
-        // Initialize with no section visible
-        document.addEventListener('DOMContentLoaded', () => {
-            const sections = document.querySelectorAll('.content-section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-        });
+        // Archive toggle
+        function toggleArchive() {
+            const content = document.getElementById('archiveContent');
+            const button = document.querySelector('.archive-toggle-btn');
+            
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+                button.textContent = 'Hide Archive';
+                button.style.transform = 'rotate(180deg)';
+            } else {
+                content.style.display = 'none';
+                button.textContent = 'Show Archive';
+                button.style.transform = 'rotate(0deg)';
+            }
+        }
     </script>
 </body>
 </html>
